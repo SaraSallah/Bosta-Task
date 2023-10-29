@@ -1,4 +1,4 @@
-package com.example.bostatask.data.remote.model.photos
+package com.example.bostatask.data.source.remote.model.photos
 
 
 import com.google.gson.annotations.SerializedName

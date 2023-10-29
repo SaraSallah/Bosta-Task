@@ -1,6 +1,6 @@
 package com.example.bostatask.domain.model.user
 
-import com.example.bostatask.data.remote.model.user.GeoDto
+import com.example.bostatask.data.source.remote.model.user.GeoDto
 
 data class Address(
     val city: String,

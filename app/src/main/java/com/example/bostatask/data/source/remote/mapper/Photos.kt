@@ -1,7 +1,7 @@
-package com.example.bostatask.data.remote.mapper
+package com.example.bostatask.data.source.remote.mapper
 
-import com.example.bostatask.data.remote.model.photos.PhotoDto
-import com.example.bostatask.data.remote.model.photos.PhotosDto
+import com.example.bostatask.data.source.remote.model.photos.PhotoDto
+import com.example.bostatask.data.source.remote.model.photos.PhotosDto
 import com.example.bostatask.domain.model.photos.Photo
 import com.example.bostatask.domain.model.photos.Photos
 

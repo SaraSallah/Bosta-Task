@@ -1,7 +1,7 @@
-package com.example.bostatask.data.remote.mapper
+package com.example.bostatask.data.source.remote.mapper
 
-import com.example.bostatask.data.remote.model.albums.AlbumDto
-import com.example.bostatask.data.remote.model.albums.AlbumsDto
+import com.example.bostatask.data.source.remote.model.albums.AlbumDto
+import com.example.bostatask.data.source.remote.model.albums.AlbumsDto
 import com.example.bostatask.domain.model.albums.Album
 import com.example.bostatask.domain.model.albums.Albums
 

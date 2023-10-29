@@ -1,14 +1,14 @@
-package com.example.bostatask.data.remote.mapper
+package com.example.bostatask.data.source.remote.mapper
 
-import com.example.bostatask.data.remote.model.user.AddressDto
-import com.example.bostatask.data.remote.model.user.CompanyDto
-import com.example.bostatask.data.remote.model.user.UserDto
+import com.example.bostatask.data.source.remote.model.user.AddressDto
+import com.example.bostatask.data.source.remote.model.user.CompanyDto
+import com.example.bostatask.data.source.remote.model.user.UserDto
 import com.example.bostatask.domain.model.user.Address
 import com.example.bostatask.domain.model.user.Company
 import com.example.bostatask.domain.model.user.User
 
 
-fun UserDto.toUserModel(): User =
+fun UserDto.toUser(): User =
     User(
         address = address!!.toAddress(),
         company = company!!.toCompany(),
