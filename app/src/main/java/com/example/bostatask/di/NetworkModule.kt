@@ -1,6 +1,6 @@
 package com.example.bostatask.di
 
-import com.example.bostatask.data.ApiService
+import com.example.bostatask.data.source.remote.network.ApiService
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -14,14 +14,15 @@ import javax.inject.Singleton
 @Module
 @InstallIn(SingletonComponent::class)
 object NetworkModule {
-    @Singleton
+    private const val BASE_URL =""
+        @Singleton
     @Provides
     fun provideRetrofit(
         client: OkHttpClient,
         gsonConverterFactory: GsonConverterFactory,
     ): Retrofit {
         return Retrofit.Builder()
-            .baseUrl("")
+            .baseUrl(BASE_URL)
             .addConverterFactory(gsonConverterFactory)
             .build()
     }
