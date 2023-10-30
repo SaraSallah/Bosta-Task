@@ -1,5 +1,6 @@
 package com.example.bostatask.data.source.remote.network
 
+import com.example.bostatask.data.source.remote.model.albums.AlbumDto
 import com.example.bostatask.data.source.remote.model.albums.AlbumsDto
 import com.example.bostatask.data.source.remote.model.photos.PhotosDto
 import com.example.bostatask.data.source.remote.model.user.UserDto
@@ -13,7 +14,7 @@ interface ApiService {
     suspend fun getUserById(@Path("UserId") userId: String): Response<UserDto>
 
     @GET("/albums")
-    suspend fun getAlbumByUserId(@Query("userId") userId: String): Response<AlbumsDto>
+    suspend fun getAlbumByUserId(@Query("userId") userId: String): Response<List<AlbumDto>>
 
     @GET("/photos")
     suspend fun getPhotoByAlbumId(@Query("albumId") albumId: String): Response<PhotosDto>

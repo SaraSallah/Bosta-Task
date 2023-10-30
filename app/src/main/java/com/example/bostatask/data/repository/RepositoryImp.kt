@@ -2,10 +2,12 @@ package com.example.bostatask.data.repository
 
 import android.util.Log
 import android.util.Log.*
+import com.example.bostatask.data.source.remote.mapper.toAlbum
 import com.example.bostatask.data.source.remote.mapper.toAlbums
 import com.example.bostatask.data.source.remote.mapper.toPhotos
 import com.example.bostatask.data.source.remote.mapper.toUser
 import com.example.bostatask.data.source.remote.network.ApiService
+import com.example.bostatask.domain.model.albums.Album
 import com.example.bostatask.domain.model.albums.Albums
 import com.example.bostatask.domain.model.photos.Photos
 import com.example.bostatask.domain.model.user.User
@@ -19,8 +21,8 @@ class RepositoryImp @Inject constructor(
     override suspend fun getUserById(userId: String): User =
           wrap { apiService.getUserById(userId)}.toUser()
 
-    override suspend fun getAlbumByUserId(userId: String): Albums =
-        wrap { apiService.getAlbumByUserId(userId)}.toAlbums()
+    override suspend fun getAlbumByUserId(userId: String): List<Album> =
+        wrap { apiService.getAlbumByUserId(userId)}.map{it.toAlbum()}
 
     override suspend fun getPhotoByAlbumId(albumId: String): Photos =
         wrap { apiService.getPhotoByAlbumId(albumId)}.toPhotos()
