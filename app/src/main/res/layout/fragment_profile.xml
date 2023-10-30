@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.example.bostatask.ui.profile.ProfileViewModel" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.profile.ProfileFragment">
+        <TextView
+            android:id="@+id/user_name_tv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:gravity="start"
+            android:text="@{viewModel.state.user.name}"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:text="Sara Salah"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/user_address_tv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:gravity="start"
+            android:text="@{viewModel.state.user.address.toString()}"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="@id/user_name_tv"
+            app:layout_constraintStart_toStartOf="@id/user_name_tv"
+            app:layout_constraintTop_toBottomOf="@id/user_name_tv"
+            tools:text="Helwan, Egypt" />
+
+        <TextView
+            android:id="@+id/textViewMyAlbums"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="My Albums"
+            android:gravity="start"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:visibility="visible"
+            app:layout_constraintEnd_toEndOf="@+id/user_address_tv"
+            app:layout_constraintStart_toStartOf="@+id/user_address_tv"
+            app:layout_constraintTop_toBottomOf="@id/user_address_tv" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/albums_recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:orientation="vertical"
+            app:items="@{viewModel.state.albums}"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textViewMyAlbums"
+            tools:listitem="@layout/item_album"/>
+
+        <ProgressBar
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:id="@+id/progress_Bar"
+            android:elevation="1dp"
+            app:showIfTrue="@{viewModel.state.loading}"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_gravity="center"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
