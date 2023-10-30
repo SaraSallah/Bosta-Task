@@ -1,9 +1,9 @@
 package com.example.bostatask.ui.base
 
-import android.nfc.Tag
 import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.bostatask.utils.EventHandler
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableSharedFlow
@@ -18,11 +18,11 @@ abstract class BaseViewModel<T, E>(initialState: T): ViewModel() {
         Log.e(Tag,message)
     }
 
-    protected val _effect = MutableSharedFlow<E>()
-    val effect = _effect.asSharedFlow()
-
     protected val _state = MutableStateFlow(initialState)
     val state = _state.asStateFlow()
+
+    protected val _effect = MutableSharedFlow<EventHandler<E>>()
+    val effect = _effect.asSharedFlow()
 
 
 

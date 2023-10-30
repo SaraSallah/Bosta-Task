@@ -1,15 +1,20 @@
 package com.example.bostatask.ui.profile
 
+import androidx.lifecycle.SavedStateHandle
+import androidx.lifecycle.viewModelScope
 import com.example.bostatask.data.repository.RepositoryImp
 import com.example.bostatask.ui.base.BaseViewModel
+import com.example.bostatask.utils.EventHandler
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.update
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
 class ProfileViewModel @Inject constructor(
     private val repositoryImp: RepositoryImp,
-) : BaseViewModel<ProfileUiState, Long>(ProfileUiState()), ProfileInteractionListener {
+    savedStateHandle: SavedStateHandle,
+    ) : BaseViewModel<ProfileUiState, ProfileUIEffect>(ProfileUiState()), ProfileInteractionListener {
     override val Tag: String = this::class.simpleName.toString()
 
     init {
@@ -64,8 +69,8 @@ class ProfileViewModel @Inject constructor(
 
     }
 
-    override fun onClickAlbum(albumId: Long) {
-        TODO("Not yet implemented")
+    override fun onClickAlbum(albumId: Int) {
+        viewModelScope.launch { _effect.emit(EventHandler(ProfileUIEffect(albumId))) }
     }
 
 

@@ -10,16 +10,24 @@
         android:label="fragment_profile"
         tools:layout="@layout/fragment_profile">
         <action
-            android:id="@+id/action_categoriesFragment_to_productsFragment"
-            app:destination="@id/profileFragment"
+            android:id="@+id/action_profileFragment_to_albumFragment"
+            app:destination="@id/albumFragment"
             app:enterAnim="@android:anim/fade_in"
             app:exitAnim="@android:anim/fade_out"
             app:popEnterAnim="@android:anim/slide_in_left"
             app:popExitAnim="@android:anim/slide_out_right"
+            app:popUpTo="@layout/fragment_profile"
             app:popUpToInclusive="true" />
-<!--        <argument-->
-<!--            android:name="albumId"-->
-<!--            app:argType="long" />-->
+
+    </fragment>
+    <fragment
+        android:id="@+id/albumFragment"
+        android:name="com.example.bostatask.ui.album.AlbumFragment"
+        android:label="fragment_album"
+        tools:layout="@layout/fragment_album">
+        <argument
+            android:name="id"
+            app:argType="integer" />
     </fragment>
 
 </navigation>

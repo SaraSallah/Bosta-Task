@@ -10,5 +10,5 @@ class ProfileAdapter(listener: ProfileInteractionListener) : BaseAdapter<Profile
 }
 
 interface ProfileInteractionListener: BaseInteractionListener {
-    fun onClickAlbum(albumId: Long)
+    fun onClickAlbum(albumId: Int)
 }

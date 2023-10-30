@@ -1,5 +1,7 @@
 package com.example.bostatask.utils
 
+import androidx.lifecycle.Observer
+
 open class EventHandler<out T>(private val content: T) {
     private var hasBeenHandled = false
 
@@ -12,3 +14,5 @@ open class EventHandler<out T>(private val content: T) {
         }
     }
 }
+
+
