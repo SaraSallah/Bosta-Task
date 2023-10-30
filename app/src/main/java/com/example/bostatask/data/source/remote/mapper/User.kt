@@ -2,9 +2,11 @@ package com.example.bostatask.data.source.remote.mapper
 
 import com.example.bostatask.data.source.remote.model.user.AddressDto
 import com.example.bostatask.data.source.remote.model.user.CompanyDto
+import com.example.bostatask.data.source.remote.model.user.GeoDto
 import com.example.bostatask.data.source.remote.model.user.UserDto
 import com.example.bostatask.domain.model.user.Address
 import com.example.bostatask.domain.model.user.Company
+import com.example.bostatask.domain.model.user.Geo
 import com.example.bostatask.domain.model.user.User
 
 
@@ -23,12 +25,14 @@ fun UserDto.toUser(): User =
 fun AddressDto.toAddress(): Address =
     Address(
         city = city ?: "",
-        geo = geo,
+        geo = geo!!.toGeo(),
         street = street ?: "",
         suite = suite ?: "",
         zipCode = zipcode ?: "",
     )
-
+fun GeoDto.toGeo():Geo =
+    Geo(lat =lat ?:"" ,
+        lng = lng ?:"")
 fun CompanyDto.toCompany(): Company =
     Company(
         bs = bs ?: "",

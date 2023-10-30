@@ -4,7 +4,7 @@ import com.example.bostatask.data.source.remote.model.user.GeoDto
 
 data class Address(
     val city: String,
-    val geo: GeoDto?,
+    val geo: Geo?,
     val street: String,
     val suite: String,
     val zipCode: String,
