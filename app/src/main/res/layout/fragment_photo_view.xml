@@ -15,25 +15,16 @@
         android:layout_height="match_parent"
         tools:context=".ui.photo.PhotoViewFragment">
         <com.jsibbold.zoomage.ZoomageView
-            android:id="@+id/image_zoom"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             app:zoomage_animateOnReset="true"
             app:zoomage_autoCenter="true"
             app:zoomage_autoResetMode="UNDER"
-            app:zoomage_maxScale="8"
+            app:zoomage_maxScale="10"
             app:zoomage_minScale="0.6"
-            app:zoomage_restrictBounds="false"
-            app:zoomage_translatable="true"
             app:zoomage_zoomable="true"
-            app:loadImage="@{viewModel.state.photo}"/>
+            app:loadImage="@{viewModel.state.photo}" />
 
-
-<!--        <ImageView-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="match_parent"-->
-<!--            app:layout_constraintTop_toTopOf="parent"-->
-<!--            app:loadImage="@{viewModel.state.photo}"/>-->
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

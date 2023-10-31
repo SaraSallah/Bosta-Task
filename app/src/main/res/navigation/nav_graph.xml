@@ -28,6 +28,26 @@
         <argument
             android:name="id"
             app:argType="integer" />
+        <action
+            android:id="@+id/action_albumFragment_to_photoViewFragment"
+            app:destination="@id/photoViewFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@android:anim/slide_out_right"
+            app:popUpTo="@layout/fragment_album"/>
+    </fragment>
+    <fragment
+        android:id="@+id/photoViewFragment"
+        android:name="com.example.bostatask.ui.photo.PhotoViewFragment"
+        android:label="PhotoViewFragment" >
+        <argument
+            android:name="albumId"
+            app:argType="integer" />
+        <argument
+            android:name="photoId"
+            app:argType="integer" />
+
     </fragment>
 
 </navigation>
