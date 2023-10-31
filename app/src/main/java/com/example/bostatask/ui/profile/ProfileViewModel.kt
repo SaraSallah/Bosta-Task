@@ -9,6 +9,7 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import javax.inject.Inject
+import kotlin.random.Random
 
 @HiltViewModel
 class ProfileViewModel @Inject constructor(
@@ -24,8 +25,11 @@ class ProfileViewModel @Inject constructor(
 
     private fun getUserInfo() {
         _state.update { it.copy(isLoading = true) }
+        val randomNumber = Random.nextInt(1, 11)
+
+        println("Random number between 1 and 10: $randomNumber")
         tryToExecute(
-            { repositoryImp.getUserById("1").toUserUiState() },
+            { repositoryImp.getUserById(randomNumber.toString()).toUserUiState() },
             ::onGetUserInfoSuccess,
             ::onError
         )
