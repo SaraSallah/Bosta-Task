@@ -14,9 +14,7 @@ data class ProfileUiState(
 )
 
 data class UserUiState(
-    val address: Address = Address("",
-        Geo("", ""), "", "", "")
-    ,
+    val address: String ="" ,
     val company: Company = Company(" ", "", ""),
     val email: String = "",
     val id: Int = 0,
@@ -34,7 +32,7 @@ data class AlbumUiState(
 
 fun User.toUserUiState(): UserUiState {
     return UserUiState(
-        address = address,
+        address = address.addressToString(),
         company = company,
         email = email,
         id = id,
@@ -44,6 +42,7 @@ fun User.toUserUiState(): UserUiState {
         website = website
     )
 }
+fun Address.addressToString():String = "$street ,$suite , $city , $zipCode"
 
 
 fun List<Album>.toAlbumUiState():List<AlbumUiState>{
