@@ -28,7 +28,7 @@ class AlbumViewModel @Inject constructor(
             ::onError)
     }
     private fun onGetPhotoByAlbumIdSuccess(photos: List<PhotoUiState>){
-        _state.update { it.copy(isLoading = false , photos = photos ) }
+        _state.update { it.copy(isLoading = false , photos = photos , searchedPhoto = photos) }
         log(state.value.photos.toString())
 
     }
@@ -39,6 +39,15 @@ class AlbumViewModel @Inject constructor(
                 isError = true
             )
         }
+
+    }
+    fun searchPhotoByTitle(query :String){
+        val searchedPhoto =_state.value.photos.filter { it.title.contains(query ,true) }
+            if(query.isBlank()){
+                _state.update { it.copy(searchedPhoto = it.photos) }
+            }
+        else
+            {_state.update { it.copy(searchedPhoto = searchedPhoto) }}
 
     }
 

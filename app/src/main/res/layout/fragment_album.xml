@@ -23,6 +23,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Search by title..."
+
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
@@ -32,6 +33,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="text"
+                app:search="@{viewModel}"
                 android:maxLines="1"
                 android:textColor="@android:color/black"
                 android:textColorHint="@android:color/darker_gray"
@@ -46,7 +48,7 @@
             android:layout_marginTop="16dp"
             android:orientation="vertical"
             android:paddingHorizontal="8dp"
-            app:items="@{viewModel.state.photos}"
+            app:items="@{viewModel.state.searchedPhoto}"
             app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
             app:layout_anchor="@+id/progressBar"
             app:layout_anchorGravity="end|top"

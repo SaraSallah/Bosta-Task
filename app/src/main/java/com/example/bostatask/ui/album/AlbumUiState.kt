@@ -8,6 +8,7 @@ data class AlbumUiState(
     val isLoading: Boolean = false,
     val isError: Boolean = false,
     val photos: List<PhotoUiState> = emptyList(),
+    val searchedPhoto : List<PhotoUiState> = emptyList()
 )
 
 data class PhotoUiState(
@@ -27,16 +28,6 @@ fun List<Photo>.toPhotoUiState(): List<PhotoUiState> {
             thumbnailUrl = it.thumbnailUrl,
             title = it.title,
             url = it.url
-        )
-    }
-}
-
-fun List<Album>.toAlbumUiState(): List<AlbumUiState> {
-    return map {
-        AlbumUiState(
-            id = it.id,
-            title = it.title,
-            userId = it.id
         )
     }
 }
