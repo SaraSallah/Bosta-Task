@@ -1,18 +1,21 @@
 package com.example.bostatask.ui.album
 
 import androidx.lifecycle.SavedStateHandle
+import androidx.lifecycle.viewModelScope
 import com.example.bostatask.data.repository.RepositoryImp
 import com.example.bostatask.ui.base.BaseViewModel
+import com.example.bostatask.ui.profile.ProfileUIEffect
+import com.example.bostatask.utils.EventHandler
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.update
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-
 class AlbumViewModel @Inject constructor(
     private val repositoryImp: RepositoryImp,
     savedStateHandle: SavedStateHandle)
-    : BaseViewModel<AlbumUiState, Int>(AlbumUiState()),AlbumInteractionListener {
+    : BaseViewModel<AlbumUiState, AlbumUiEffect>(AlbumUiState()),AlbumInteractionListener {
     override val Tag: String = this::class.simpleName.toString()
     private val args = AlbumFragmentArgs.fromSavedStateHandle(savedStateHandle)
 
@@ -51,7 +54,7 @@ class AlbumViewModel @Inject constructor(
 
     }
 
-    override fun onClickPhoto(albumId: Int) {
-        TODO("Not yet implemented")
+    override fun onClickPhoto(photoId: Int) {
+        viewModelScope.launch { _effect.emit(EventHandler(AlbumUiEffect(args.id ,photoId))) }
     }
 }

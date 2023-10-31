@@ -8,12 +8,16 @@
         <variable
             name="item"
             type="com.example.bostatask.ui.album.PhotoUiState" />
+        <variable
+            name="listener"
+            type="com.example.bostatask.ui.album.AlbumInteractionListener" />
     </data>
 
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="100dp"
         tools:src="@color/cardview_dark_background"
+        android:onClick="@{()-> listener.onClickPhoto(item.id)}"
         app:loadImage="@{item.thumbnailUrl}"
         android:id="@+id/image_view"
         >

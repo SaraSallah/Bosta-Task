@@ -10,5 +10,5 @@ class AlbumAdapter(listener: AlbumInteractionListener) : BaseAdapter<AlbumUiStat
 }
 
 interface AlbumInteractionListener: BaseInteractionListener {
-    fun onClickPhoto(albumId: Int)
+    fun onClickPhoto(photoId: Int)
 }
